@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{%
+  set localMeta = meta | default({
+    title: 'master markup',
+    description: 'description',
+    keywords: 'keyword',
+    url: 'url'
+  })
+%}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/vnd.microsoft.icon">
+  <link rel="icon" href="/favicons/favicon.ico" type="image/vnd.microsoft.icon">
+
+  <meta name="description" content="{{ localMeta.description }}">
+  <meta name="keywords" content="{{ localMeta.keywords }}">
+  <meta property="og:title" content="{{ localMeta.title }}">
+  <meta property="og:description" content="{{ localMeta.description }}">
+  <meta property="og:url" content="{{ localMeta.url }}">
+  <meta property="og:image" content="/img/logo.png">
+  <meta property="og:site_name" content="Panasonic">
+  <meta property="og:type" content="website">
+
+  <title>{{ localMeta.title }}</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  {% include 'shared/_header.html' %}
+  {% block content %}
+  {% endblock %}
+  {% include 'shared/_footer.html' %}
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
